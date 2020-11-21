@@ -1,4 +1,4 @@
-pragma solidity 0.5.10;
+pragma solidity ^0.6.0;
 
 import "./SafeMath.sol";
 
@@ -45,9 +45,9 @@ contract SuperMan is IERC20 {
     
     IBMapping mappingContract;  //映射合约
 
-    uint256 private _totalSupply = 1500;
-    string public name = "NestNode";
-    string public symbol = "NN";
+    uint256 private _totalSupply = 500;
+    string public name = "HomerNode";
+    string public symbol = "HN";
     uint8 public decimals = 0;
 
     constructor (address map) public {

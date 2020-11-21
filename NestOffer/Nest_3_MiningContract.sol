@@ -14,7 +14,7 @@ contract Nest_3_MiningContract {
     
     uint256 _blockAttenuation = 2400000;                 //  Block decay time interval
     uint256[10] _attenuationAmount;                      //  Mining decay amount
-    uint256 _afterMiningAmount = 40 ether;               //  Stable period mining amount
+    uint256 _afterMiningAmount = 1 ether;               //  Stable period mining amount
     uint256 _firstBlockNum;                              //  Starting mining block
     uint256 _latestMining;                               //  Latest offering block
     Nest_3_VoteFactory _voteFactory;                     //  Voting contract
@@ -33,9 +33,10 @@ contract Nest_3_MiningContract {
         _offerFactoryAddress = address(_voteFactory.checkAddress("nest.v3.offerMain"));
         _nestContract = ERC20(address(_voteFactory.checkAddress("nest")));
         // Initiate mining parameters
-        _firstBlockNum = 6236588;
+        // _firstBlockNum = 6236588;
+        _firstBlockNum = block.number;
         _latestMining = block.number;
-        uint256 blockAmount = 400 ether;
+        uint256 blockAmount = 4 ether;
         for (uint256 i = 0; i < 10; i ++) {
             _attenuationAmount[i] = blockAmount;
             blockAmount = blockAmount.mul(8).div(10);
@@ -80,7 +81,7 @@ contract Nest_3_MiningContract {
         uint256 attenuationPointNow = block.number.sub(createBlock).div(_blockAttenuation);
         uint256 miningAmount = 0;
         uint256 attenuation;
-        if (attenuationPointNow > 9) {
+        if (attenuationPointNow > 6) {
             attenuation = _afterMiningAmount;
         } else {
             attenuation = _attenuationAmount[attenuationPointNow];

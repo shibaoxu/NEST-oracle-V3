@@ -1,4 +1,4 @@
-pragma solidity ^0.5.1;
+pragma solidity ^0.6.0;
 
 library IterableMapping {
   struct itmap
@@ -315,10 +315,10 @@ contract StandardToken is ERC20, BasicToken {
 
 contract IBNEST is StandardToken {
     
-    string public name = "NEST";
-    string public symbol = "NEST";
+    string public name = "HOMER";
+    string public symbol = "HOMER";
     uint8 public decimals = 18;
-    uint256 public INITIAL_SUPPLY = 10000000000 ether;
+    uint256 public INITIAL_SUPPLY = 100000000 ether;
 
     constructor () public {
     	totalSupply_ = INITIAL_SUPPLY;
